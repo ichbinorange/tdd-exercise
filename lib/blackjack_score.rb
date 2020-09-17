@@ -3,6 +3,10 @@
 VALID_CARDS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
 
 def blackjack_score(hand)
+  hand = hand.map do |card|
+    card.class == String ? card.capitalize : card
+  end
+
   score = 0
   raise ArgumentError.new("Invalid number of cards: #{ hand.count }") if hand.count > 5 || hand.count < 2
   ace_num = hand.count("Ace")

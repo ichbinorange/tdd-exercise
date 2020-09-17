@@ -30,7 +30,7 @@ describe 'Blackjack Score' do
   end
 
   it 'facecards have values calculated correctly' do
-    hand = ["Jack", "King"]
+    hand = ["jack", "king"] # lowercase
     score = blackjack_score(hand)
     expect(score).must_equal 20
 
