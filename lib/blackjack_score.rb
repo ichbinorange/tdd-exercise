@@ -6,15 +6,14 @@ def blackjack_score(hand)
   score = 0
   raise ArgumentError.new("Invalid number of cards: #{ hand.count }") if hand.count > 5 || hand.count < 2
   ace_num = hand.count("Ace")
+  raise ArgumentError.new("Invalid cards: #{hand}") if !(hand.all? { |card| VALID_CARDS.include? (card) })
   hand.delete ("Ace")
   hand.each do |card|
     case card
     when (2..10)
       score += card
-    when "Jake", "Queen", "King"
+    when "Jack", "Queen", "King"
       score += 10
-    else
-      raise ArgumentError.new("Invalid card: #{ card }")
     end
   end
 
